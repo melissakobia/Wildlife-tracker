@@ -6,10 +6,9 @@ public class NonEndangeredAnimal extends Animal{
     public static final String DATABASE_TYPE = "non-endangered";
 
 
-    public NonEndangeredAnimal(String name) {
+    public NonEndangeredAnimal(String name,String age) {
         this.name = name;
-
-        age = ageArray[0];
+        this.age = age;
         type = DATABASE_TYPE;
     }
 
