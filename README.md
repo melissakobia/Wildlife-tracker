@@ -51,7 +51,7 @@ To create the necessary databases, launch postgres, then psql, and run the follo
 * `CREATE TABLE sightings(id serial PRIMARY KEY, animalId int, location varchar, rangerName varchar, sightingDate timestamp);`
 * `CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;`
  
-* Step 5
+* Step 6
 Run your app with -gradle run command on your terminal.
     
 ## Built With
