@@ -9,13 +9,16 @@ public class NonEndangeredAnimal extends Animal{
     public NonEndangeredAnimal(String name,String age) {
         this.name = name;
         this.age = age;
-        type = DATABASE_TYPE;
+        this.type = DATABASE_TYPE;
     }
 
     public static List<NonEndangeredAnimal> all() {
-        String sql = "SELECT * FROM animals WHERE type='non-endangered' ";
+        String sql = "SELECT * FROM animals WHERE type=:type; ";
         try (Connection con =DB.sql2o.open()) {
-            return con.createQuery(sql).throwOnMappingFailure(false).executeAndFetch(NonEndangeredAnimal.class);
+            return con.createQuery(sql)
+                    .addParameter("type", DATABASE_TYPE)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(NonEndangeredAnimal.class);
 
         }
     }
