@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -49,7 +50,7 @@ public class SightingTest {
     public void save_successfullyAddsSightingToDatabase_List() {
         Sighting newSighting = new Sighting("Hiram",1,"Zone A");
         newSighting.save();
-        assertTrue(Sighting.all().get(0).equals(newSighting));
+        assertEquals(Sighting.all().get(0), newSighting);
     }
 
     @Test
@@ -61,17 +62,7 @@ public class SightingTest {
     }
 
     @Test
-    public void save_savesAnimalIdIntoDB_true() {
-        NonEndangeredAnimal testAnimal = new NonEndangeredAnimal("Lion", "young");
-        testAnimal.save();
-        Sighting newSighting = new Sighting("Hiram",1,"Zone A");
-        newSighting.save();
-        Sighting savedSighting = Sighting.find(newSighting.getId());
-        assertEquals(savedSighting.getAnimalId(), testAnimal.getId());
-    }
-
-    @Test
-    public void all_returnsAllInstancesOfsightings_true() {
+    public void all_returnsAllInstancesOfSightings_true() {
         Sighting newSighting = new Sighting("Hiram",1,"Zone A");
         Sighting otherSighting = new Sighting("Mary",3,"Zone B");
         newSighting.save();
