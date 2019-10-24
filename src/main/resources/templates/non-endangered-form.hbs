@@ -1,0 +1,72 @@
+{{#partial "content"}}
+    <div class="container">
+        <div class="row container">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <!--Section: Live preview-->
+                <div class="form-dark">
+
+                    <!--Form without header-->
+                    <div class="card card-image"
+                         style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table7.jpg'); width: 28rem;">
+                        <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+
+                            <!--Header-->
+                            <div class="text-center">
+                                <h3 class="amber-text mb-5 mt-4 font-weight-bold"><strong>NON-ENDANGERED</strong> <a
+                                        class="amber-text font-weight-bold"><strong> ANIMAL</strong></a></h3>
+                            </div>
+
+                            <br>
+
+                            <!--Body-->
+                            <form action="/non-endangered/new" method="post">
+
+                                <label for="name">Animal Name</label>
+                                <input type="text" id="name" class="form-control" name="name">
+
+                                <br>
+                                <label for="type">Age</label>
+                                <br>
+                                <select class="browser-default custom-select" id="age" name="age">
+                                    <option selected>Select Age</option>
+                                    <option value="newborn">New born</option>
+                                    <option value="young">Young</option>
+                                    <option value="adult">Adult</option>
+                                </select>
+
+                                <br>
+                                <!--Grid row-->
+                                <div class="row d-flex align-items-center mb-4">
+                                    <br>
+
+                                    <!--Grid column-->
+                                    <div class="text-center mb-3 col-md-12">
+                                        <button type="submit" class="btn peach-gradient z-depth-1">SUBMIT</button>
+                                    </div>
+                                    <!--Grid column-->
+                                </div>
+                                <!--Grid row-->
+
+
+                            </form>
+                            <!--Grid column-->
+
+                        </div>
+                    </div>
+                    <!--/Form without header-->
+
+                </div>
+                <!--Section: Live preview-->
+
+            </div>
+            <div class="ol-md-3"></div>
+
+        </div>
+
+
+
+    </div>
+
+{{/partial}}
+{{> layout.hbs}}
