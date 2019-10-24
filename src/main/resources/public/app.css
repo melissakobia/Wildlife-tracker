@@ -1,0 +1,52 @@
+#content {
+  padding-top : 4%;
+}
+
+#main-heading {
+  padding-bottom: 30%;
+  padding-top:30%;
+  font-weight: 700em;
+  font-size:60px;
+}
+
+#main {
+    background-image: url(./images/lion.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+
+}
+
+.main-buttons {
+    padding-top:10%;
+    padding-bottom:20%;
+}
+
+.page {
+    padding:5%;
+}
+
+.endangered-heading {
+    padding-bottom: 40%;
+    padding-top:40%;
+    text-align: center;
+    color:wheat-smoke;
+}
+
+.sighting {
+    background-image: url(./images/lion.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.sighting-heading {
+    padding: 5%;
+}
+
+#sighting-table {
+    padding-bottom: 40%;
+    padding-top:2%;
+}
