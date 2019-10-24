@@ -1,0 +1,40 @@
+{{#partial "content"}}
+    <div>
+        <div class="row">
+            <div class="col-md-6" style="background-image: url('/images/elephant2.jpg'); width: 28rem; background-position: center; background-repeat: no-repeat; background-size: cover;">
+                <div class="container endangered-heading">
+                    <h1>Endangered Animals</h1>
+
+                </div>
+
+
+            </div>
+            <div class="col-md-6">
+                <div class="container">
+
+                </div>
+                {{#if endangeredAnimals}}
+                    {{#each endangeredAnimals}}
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title">Animal Name: {{name}}</p>
+                                <hr>
+                                <p>Age: {{age}}</p>
+                                <p>Health : {{health}} </p>
+
+                            </div>
+                        </div>
+
+                    {{/each}}
+                {{else}}
+                    <h1>No Endangered Animals</h1>
+                {{/if}}
+
+            </div>
+
+        </div>
+
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
