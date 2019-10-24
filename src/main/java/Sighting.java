@@ -1,5 +1,6 @@
 import org.sql2o.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -15,12 +16,13 @@ public class Sighting {
 
 
     public Sighting(String rangerName, int animalId, String location) {
+        if (rangerName.equals("")) {
+            throw new IllegalArgumentException("Please enter Ranger name.");
+        }
         this.rangerName = rangerName;
         this.animalId = animalId;
         this.location = location;
-
-
-
+        this.sightingDate = new Timestamp(new Date().getTime());
 
     }
 
@@ -38,6 +40,10 @@ public class Sighting {
 
     public String getLocation() {
         return location;
+    }
+
+    public String getTimeSeen(){
+        return String.format("%1$TD %1$TR", sightingDate);
     }
 
     public Timestamp getSightingDate() {
@@ -63,10 +69,18 @@ public class Sighting {
 
     public void save() {
         try (Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO sightings (rangerName, animalId, location, sightingDate) VALUES (:rangerName, :animalId, :location, now());";
-            this.id = (int) con.createQuery(sql, true).addParameter("rangerName", this.rangerName).addParameter("animalId", this.animalId).addParameter("location", this.location).executeUpdate().getKey();
-
+            String sql = "INSERT INTO sightings (rangerName, animalId, location, sightingDate) VALUES (:rangerName, :animalId, :location, :sightingDate);";
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("rangerName", this.rangerName)
+                    .addParameter("animalId", this.animalId)
+                    .addParameter("location", this.location)
+                    .addParameter("sightingDate", this.sightingDate)
+                    .executeUpdate()
+                    .getKey();
+        }catch (Sql2oException ex) {
+            System.out.println("found "+ex);
         }
+
     }
 
     public static List<Sighting> all() {
