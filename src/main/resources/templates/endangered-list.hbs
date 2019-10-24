@@ -1,40 +1,46 @@
 {{#partial "content"}}
-    <div>
+    <div style="background-image: url('/images/elephant2.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
         <div class="row">
-            <div class="col-md-6" style="background-image: url('/images/elephant2.jpg'); width: 28rem; background-position: center; background-repeat: no-repeat; background-size: cover;">
-                <div class="container endangered-heading">
-                    <h1>Endangered Animals</h1>
-
-                </div>
-
-
-            </div>
+            <div class="col-md-3"></div>
             <div class="col-md-6">
-                <div class="container">
+                    <div class="container endangered-heading">
+                        <h1>Endangered Animals</h1>
+
+                    </div>
+                    {{#if endangeredAnimals}}
+                        {{#each endangeredAnimals}}
+                            <table class="table table-dark table-hover">
+                                <thead>
+                                <tr>
+                                    <th>Animal</th>
+                                    <th>Age</th>
+                                    <th>Health</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+
+                                    <td>{{name}}</td>
+                                    <td>{{age}}</td>
+                                    <td>{{health}}</td>
+                                    <td><a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Delete</a></td>
+
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        {{/each}}
+                    {{else}}
+                        <h1>No Endangered Animals</h1>
+                    {{/if}}
 
                 </div>
-                {{#if endangeredAnimals}}
-                    {{#each endangeredAnimals}}
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-title">Animal Name: {{name}}</p>
-                                <hr>
-                                <p>Age: {{age}}</p>
-                                <p>Health : {{health}} </p>
+            <div class="col-md-3" ></div>
 
-                            </div>
-                        </div>
-
-                    {{/each}}
-                {{else}}
-                    <h1>No Endangered Animals</h1>
-                {{/if}}
 
             </div>
-
         </div>
-
-    </div>
 {{/partial}}
 
 {{> layout.hbs}}

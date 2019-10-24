@@ -15,18 +15,18 @@
                                     <th>Animal</th>
                                     <th>Location</th>
                                     <th>Ranger's Name</th>
+                                    <th>Time Recorded</th>
                                     <th></th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    {{#if Animal.id == animalId}}
-                                        <td>{{name}}</td>
-                                    {{/if}}
 
+                                    <td>{{animalId}}</td>
                                     <td>{{location}}</td>
                                     <td>{{rangerName}}</td>
+                                    <td>{{timeSeen}}</td>
                                     <td><a href="/sightings/{{id}}/delete" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Delete</a></td>
 
                                 </tr>
